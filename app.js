@@ -10,6 +10,15 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 1000);
 
+const buttonRow = document.getElementById('buttonRow');
+buttonRow.addEventListener('click', function (event) {
+    const target = event.target;
+    if (target.classList.contains('number-button')) {
+        const number = target.getAttribute('data-number');
+        updateDisplay(number);
+    }
+});
+
 function updateDisplay(number) {
     const displayedNumber = document.getElementById('displayedNumber');
     const deleteIcon = document.getElementById('deleteIcon');
