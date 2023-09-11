@@ -27,8 +27,10 @@ function updateDisplay(number) {
 
     if (currentNumber.length === 4 && currentNumber !== "4444") {
         numberBar.style.border = '5px solid red';
-    } else {
+    } else (currentNumber === "4444"){
         numberBar.style.border = '5px solid green';
+    } else if{
+        numberBar.style.border = 'none'
     }
     displayedNumber.textContent = currentNumber;
     deleteIcon.style.visibility = 'visible';
