@@ -1,91 +1,63 @@
-// The function that updates the time
+// Cache frequently used DOM elements
+const timeElement = document.getElementById('time');
+const displayedNumber = document.getElementById('displayedNumber');
+const deleteIcon = document.getElementById('deleteIcon');
+const numberBar = document.getElementById('numberBar');
+
+// Update the displayed time every second
 function updateTime() {
-    // Get the element that displays the time
-    const timeElement = document.getElementById('time');
-
-    // Get the current hour and minute, ensuring they have two digits
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0'); 
-    const minutes = now.getMinutes().toString().padStart(2, '0'); 
-
-    // Create a string in the format "hh:mm" for the current time
-    const currentTime = hours + ':' + minutes;
-
-    // Update the displayed time on the webpage
-    timeElement.textContent = currentTime;
+    const hoursMinutes = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    timeElement.textContent = hoursMinutes;
 }
 
-// Initialize and update the time every second
-updateTime();
 setInterval(updateTime, 1000);
+updateTime(); // Initial call
 
-// The function to update the displayed number when a button is pressed
+// Event listener for number buttons
+document.querySelectorAll('.numbers button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const number = button.textContent;
+        updateDisplay(number);
+    });
+});
+
+// Function to update the displayed number when a button is pressed
 function updateDisplay(number) {
-    // Get references to elements on the webpage
-    const displayedNumber = document.getElementById('displayedNumber');
-    const deleteIcon = document.getElementById('deleteIcon');
-    const numberBar = document.getElementById('numberBar');
-
-    // Get the current number displayed
     let currentNumber = displayedNumber.textContent;
+    currentNumber = (currentNumber + number).slice(0, 4);
+    displayedNumber.textContent = currentNumber;
+    checkPassword(currentNumber);
+    toggleDeleteIcon();
+}
 
-    // If the current number is less than 4 digits, add the pressed number
-    if (currentNumber.length < 4) {
-        currentNumber += number.toString();
-    }
-    else {
-        // If there are already 4 digits, start over with the new number
-        currentNumber = number.toString();
-    }
-
-    // Check if the entered number is the correct password (4444)
-    if (currentNumber.length === 4 && currentNumber !== "4444") {
-        // Show a red border to indicate the password is not correct
-        numberBar.style.border = '5px solid red';
-    } 
+// Function to check the entered password
+function checkPassword(currentNumber) {
     if (currentNumber === "4444") {
-        // Show a green border and display a success message
         numberBar.style.border = '5px solid green';
         alert('The Password You Entered Is Correct');
-    } 
-    if (currentNumber !== "4444" && currentNumber.length !== 4) {
-        // Remove the border if the entered number is not correct
+    } else if (currentNumber.length === 4) {
+        numberBar.style.border = '5px solid red';
+    } else {
         numberBar.style.border = 'none';
     }
-    
-    // Update the displayed number and show the delete icon
-    displayedNumber.textContent = currentNumber;
-    deleteIcon.style.visibility = 'visible';
+}
+
+// Function to show/hide the delete icon
+function toggleDeleteIcon() {
+    deleteIcon.style.visibility = displayedNumber.textContent.length > 0 ? 'visible' : 'hidden';
 }
 
 // Function to delete the last entered number
 function deleteLastNumber() {
-    const displayedNumber = document.getElementById('displayedNumber');
     let currentNumber = displayedNumber.textContent;
-
-    // If there is a number to delete (not empty), remove the last digit
     if (currentNumber.length > 0) {
         currentNumber = currentNumber.slice(0, -1);
         displayedNumber.textContent = currentNumber;
     }
-
-    // If there are no digits left, hide the delete icon and remove any border
     if (currentNumber.length === 0) {
-        hideDeleteIcon();
+        toggleDeleteIcon();
     }
-
-    const numberBar = document.getElementById('numberBar'); // Assuming you have an element with id "numberBar"
     numberBar.style.border = 'none';
-}
-
-// Function to show the delete icon
-function showDeleteIcon() {
-    const deleteIcon = document.getElementById('deleteIcon');
-    deleteIcon.style.visibility = 'visible';
-}
-
-// Function to hide the delete icon
-function hideDeleteIcon() {
-    const deleteIcon = document.getElementById('deleteIcon');
-    deleteIcon.style.visibility = 'hidden';
-}
+                            }
+        
