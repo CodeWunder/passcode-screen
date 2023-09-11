@@ -25,15 +25,11 @@ function updateDisplay(number) {
         currentNumber = currentNumber.slice(-4);
     }
 
-    if (currentNumber !== "4444") {
+    if (currentNumber.length === 4 && currentNumber !== "4444") {
         numberBar.style.border = '5px solid red';
     } else {
-    
         numberBar.style.border = '5px solid green';
-        
-        alert('The Password you entered is correct')
     }
-
     displayedNumber.textContent = currentNumber;
     deleteIcon.style.visibility = 'visible';
 }
