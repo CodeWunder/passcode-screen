@@ -20,9 +20,8 @@ function updateDisplay(number) {
         currentNumber += number.toString();
     }
 
-
-    if (currentNumber.length > 4) {
-        currentNumber = currentNumber.slice(-4);
+    if (currentNumber.length === 4) {
+        currentNumber = number.toString();
     }
 
     if (currentNumber.length === 4 && currentNumber !== "4444") {
