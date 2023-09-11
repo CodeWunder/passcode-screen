@@ -19,8 +19,7 @@ function updateDisplay(number) {
     if (currentNumber.length < 4) {
         currentNumber += number.toString();
     }
-
-    if (currentNumber.length === 5) {
+    else {
         currentNumber = number.toString();
     }
 
