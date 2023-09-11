@@ -39,21 +39,20 @@ function updateDisplay(number) {
 
     // Check if the entered number is the correct password (4444)
     if (currentNumber.length === 4 && currentNumber !== "4444") {
-         // Show a red border to show password is not correct
+        // Show a red border to indicate the password is not correct
         numberBar.style.border = '5px solid red';
-    } if(currentNumber === "4444"){
-         // Show a green border and display a success message
+    }
+
+    if (currentNumber === "4444") {
+        // Show a green border and display a success message
         numberBar.style.border = '5px solid green';
         alert('The Password You Entered Is Correct');
-    } if{
-        // Remove the border if the entered number is not correct
-        numberBar.style.border = 'none'
     }
-    
-    // Update the displayed number and show the delete icon
-    displayedNumber.textContent = currentNumber;
-    deleteIcon.style.visibility = 'visible';
-}
+
+    // If the entered number is not correct or not exactly 4 digits, remove the border
+    if (currentNumber !== "4444" && currentNumber.length !== 4) {
+        numberBar.style.border = 'none';
+    }
 
 // Function to delete the last entered number
 function deleteLastNumber() {
