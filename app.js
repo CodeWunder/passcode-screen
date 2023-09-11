@@ -24,6 +24,7 @@ function updateDisplay(number) {
     // Get references to elements on the webpage
     const displayedNumber = document.getElementById('displayedNumber');
     const deleteIcon = document.getElementById('deleteIcon');
+    const numberBar = document.getElementById('numberBar'); // Assuming you have an element with id "numberBar"
 
     // Get the current number displayed
     let currentNumber = displayedNumber.textContent;
@@ -39,15 +40,17 @@ function updateDisplay(number) {
 
     // Check if the entered number is the correct password (4444)
     if (currentNumber.length === 4 && currentNumber !== "4444") {
-         // Show a red border to show password is not correct
+        // Show a red border to indicate the password is not correct
         numberBar.style.border = '5px solid red';
-    } if(currentNumber === "4444"){
-         // Show a green border and display a success message
+    } 
+    if (currentNumber === "4444") {
+        // Show a green border and display a success message
         numberBar.style.border = '5px solid green';
         alert('The Password You Entered Is Correct');
-    } if{
+    } 
+    if (currentNumber !== "4444" && currentNumber.length !== 4) {
         // Remove the border if the entered number is not correct
-        numberBar.style.border = 'none'
+        numberBar.style.border = 'none';
     }
     
     // Update the displayed number and show the delete icon
@@ -57,6 +60,7 @@ function updateDisplay(number) {
 
 // Function to delete the last entered number
 function deleteLastNumber() {
+    const displayedNumber = document.getElementById('displayedNumber');
     let currentNumber = displayedNumber.textContent;
 
     // If there is a number to delete (not empty), remove the last digit
@@ -69,7 +73,9 @@ function deleteLastNumber() {
     if (currentNumber.length === 0) {
         hideDeleteIcon();
     }
-    numberBar.style.border = 'none'
+
+    const numberBar = document.getElementById('numberBar'); // Assuming you have an element with id "numberBar"
+    numberBar.style.border = 'none';
 }
 
 // Function to show the delete icon
