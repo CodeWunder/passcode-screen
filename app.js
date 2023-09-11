@@ -27,6 +27,7 @@ function updateDisplay(number) {
         numberBar.style.border = '5px solid red';
     } else if(currentNumber === "4444"){
         numberBar.style.border = '5px solid green';
+        alert('The Password You Entered Is Correct');
     } else{
         numberBar.style.border = 'none'
     }
