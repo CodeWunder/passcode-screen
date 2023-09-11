@@ -20,15 +20,11 @@ buttonRow.addEventListener('click', function (event) {
 });
 
 function updateDisplay(number) {
-    const displayedNumber = document.getElementById('displayedNumber');
-    const deleteIcon = document.getElementById('deleteIcon');
-    
     let currentNumber = displayedNumber.textContent;
 
     if (currentNumber.length < 4) {
         currentNumber += number.toString();
     }
-
 
     if (currentNumber.length > 4) {
         currentNumber = currentNumber.slice(-4);
@@ -37,10 +33,8 @@ function updateDisplay(number) {
     if (currentNumber !== "4444") {
         numberBar.style.border = '5px solid red';
     } else {
-    
         numberBar.style.border = '5px solid green';
-        
-        alert('The Password you entered is correct')
+        alert('The Password you entered is correct');
     }
 
     displayedNumber.textContent = currentNumber;
