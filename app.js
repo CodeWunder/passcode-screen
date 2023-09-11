@@ -27,9 +27,9 @@ function updateDisplay(number) {
 
     if (currentNumber.length === 4 && currentNumber !== "4444") {
         numberBar.style.border = '5px solid red';
-    } else (currentNumber === "4444"){
+    } else if(currentNumber === "4444"){
         numberBar.style.border = '5px solid green';
-    } else if{
+    } else{
         numberBar.style.border = 'none'
     }
     displayedNumber.textContent = currentNumber;
