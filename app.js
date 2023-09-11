@@ -24,7 +24,7 @@ function updateDisplay(number) {
     // Get references to elements on the webpage
     const displayedNumber = document.getElementById('displayedNumber');
     const deleteIcon = document.getElementById('deleteIcon');
-    const numberBar = document.getElementById('numberBar'); // Assuming you have an element with id "numberBar"
+    const numberBar = document.getElementById('numberBar');
 
     // Get the current number displayed
     let currentNumber = displayedNumber.textContent;
