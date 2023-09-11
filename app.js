@@ -41,11 +41,11 @@ function updateDisplay(number) {
     if (currentNumber.length === 4 && currentNumber !== "4444") {
          // Show a red border to show password is not correct
         numberBar.style.border = '5px solid red';
-    } else if(currentNumber === "4444"){
+    } if(currentNumber === "4444"){
          // Show a green border and display a success message
         numberBar.style.border = '5px solid green';
         alert('The Password You Entered Is Correct');
-    } else{
+    } if{
         // Remove the border if the entered number is not correct
         numberBar.style.border = 'none'
     }
