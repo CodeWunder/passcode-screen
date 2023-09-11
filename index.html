@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="iphone-screen">
+                <div class="top-bar">
+                    <div class="ellipse"></div>
+                    <p class="top-bar-text" id="time">12:46</p>
+                    <div class="battery">
+                        <div class="rectangle-one">
+                            <div class="small-rectangle"></div>                      
+                        </div>
+                        <div class="little-rectangle"></div>
+                    </div>
+                    <div class="network">
+                        <div class="bar-one"></div>
+                        <div class="bar-two"></div>
+                        <div class="bar-three"></div>
+                    
+                    </div>
+                </div>
+                <div class="number-bar" id="numberBar">
+                    <p id="displayedNumber"></p>
+                </div>
+                <div class="numbers">
+                    <div class="row">
+                        <button type="button" onclick="updateDisplay(1)">1</button>
+                        <button type="button" onclick="updateDisplay(2)">2</button>
+                        <button type="button" onclick="updateDisplay(3)">3</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" onclick="updateDisplay(4)">4</button>
+                        <button type="button" onclick="updateDisplay(5)">5</button>
+                        <button type="button" onclick="updateDisplay(6)">6</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" onclick="updateDisplay(7)">7</button>
+                        <button type="button" onclick="updateDisplay(8)">8</button>
+                        <button type="button" onclick="updateDisplay(9)">9</button>
+                    </div>
+                    <div class="row">
+                        <button type="button" onclick="updateDisplay(0)">0</button>
+                    </div>
+                </div>
+                <div class="delete-icon" id="deleteIcon" onclick="deleteLastNumber()">
+                    <img src="assets/delete.png" alt="">
+                </div>
+                
+                <div class="notch"></div>
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
