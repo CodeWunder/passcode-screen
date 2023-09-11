@@ -43,14 +43,14 @@ function updateDisplay(number) {
         numberBar.style.border = '5px solid red';
     }
 
-    if (currentNumber === "4444") {
+   else if (currentNumber === "4444") {
         // Show a green border and display a success message
         numberBar.style.border = '5px solid green';
         alert('The Password You Entered Is Correct');
     }
 
     // If the entered number is not correct or not exactly 4 digits, remove the border
-    if (currentNumber !== "4444" && currentNumber.length !== 4) {
+    else (currentNumber !== "4444" && currentNumber.length !== 4) {
         numberBar.style.border = 'none';
     }
 
