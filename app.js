@@ -20,7 +20,7 @@ function updateDisplay(number) {
         currentNumber += number.toString();
     }
 
-    if (currentNumber.length === 4) {
+    if (currentNumber.length === 5) {
         currentNumber = number.toString();
     }
 
