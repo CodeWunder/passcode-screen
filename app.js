@@ -27,9 +27,13 @@ function updateDisplay(number) {
     let currentNumber = displayedNumber.textContent;
     currentNumber = (currentNumber + number).slice(0, 4);
     displayedNumber.textContent = currentNumber;
-    checkPassword(currentNumber);
+
+    if (currentNumber.length === 4) {
+        checkPassword(currentNumber);
+    }
     toggleDeleteIcon();
 }
+
 
 // Function to check the entered password
 function checkPassword(currentNumber) {
